@@ -1,0 +1,36 @@
+{% set name = "libcsm" %}
+{% set version = "3.0.1" %}
+{% set sha256 = "eab1814242549a1fceb1815e3c1cacda531efeeb7a0cfe79382eb45cc0ce1e8c" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/jlaura/csm
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - vc 10  # [win]
+
+build:
+  number: 0
+
+test:
+  commands:
+    - test -e $PREFIX/lib/libcsmapi.so  # [linux]
+    - test -e $PREFIX/lib/libcsmapi.dylib  # [osx]
+    - test -e $PREFIX/include/csm/Isd.h
+    - test -e $PREFIX/include/csm/csm.h
+
+about:
+  home: https://github.com/sminster/csm
+  license: None
+  summary: "This is the Community Sensor Model base interface library."
+
+extra:
+  recipe-maintainers:
+    - jlaura

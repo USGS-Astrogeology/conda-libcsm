@@ -1,0 +1,22 @@
+# The language in this case has no bearing - we are going to be making use of conda.
+language: generic
+
+os: osx
+osx_image: xcode6.4
+
+sudo: false
+
+compiler:
+  - clang
+
+install:
+  - curl -o miniconda.sh  https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+
+ 
+after_success:
+  - test $TRAVIS_BRANCH = "master" && conda install conda-build && conda install anaconda-client && bash conda/conda_upload.sh 
