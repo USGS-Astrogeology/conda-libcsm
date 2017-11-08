@@ -8,5 +8,5 @@ export CONDA_BLD_PATH=~/conda-bld
 #export VERSION=`date +%Y.%m.%d`
 export VERSION='3.0.1'
 conda build .
-anaconda -t $CONDA_UPLOAD_TOKEN upload -u $USER -l nightly $CONDA_BLD_PATH/$OS/$PKG_NAME-`date +%Y.%m.%d`-0.tar.bz2 --force
+anaconda -t $CONDA_UPLOAD_TOKEN upload -u $USER $CONDA_BLD_PATH/$OS/$PKG_NAME-$VERSION-0.tar.bz2 --force
 

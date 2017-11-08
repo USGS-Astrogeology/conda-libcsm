@@ -11,6 +11,9 @@ source:
 
 build:
   number: 0
+  script_env: 
+    - VERSION
+    - CONDA_BLD_PATH
 
 requirements:
   build:
