@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/jlaura/csm
+  git_url: https://github.com/USGS-Astrogeology/csm
 
 build:
   number: 0

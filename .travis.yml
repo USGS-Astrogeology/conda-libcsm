@@ -1,15 +1,39 @@
 # The language in this case has no bearing - we are going to be making use of conda.
 language: generic
 
-os: osx
-osx_image: xcode9.1
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode9.1
+      compiler: clang
+      env:
+        - MATRIX_EVAL=""
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+      env:
+         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9" 
 
-sudo: false
-
-compiler:
-  - clang
+before_install:
+    - eval "${MATRIX_EVAL}"
 
 install:
+  - if ! [[ -d $HOME/miniconda ]]; then
+        py_major=3
+        declare miniconda_url
+        case "$(uname -s | tr '[:upper:]' '[:lower:]')" in
+            linux) miniconda_url="https://repo.continuum.io/miniconda/Miniconda${py_major}-latest-Linux-x86_64.sh";;
+            darwin) miniconda_url="https://repo.continuum.io/miniconda/Miniconda${py_major}-latest-MacOSX-x86_64.sh";;
+        esac
+
+        curl -sS -o miniconda.sh "$miniconda_url"
+        bash miniconda.sh -bfp $HOME/miniconda
+        rm -rf miniconda.sh
+    fi
   - curl -o miniconda.sh  https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
   - bash miniconda.sh -b -p $HOME/miniconda
   - export PATH="$HOME/miniconda/bin:$PATH"
