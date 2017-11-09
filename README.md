@@ -9,5 +9,5 @@ A compiled, conda installable build of the Community Sensor Model from a fork ma
 | OS    | Status |
 |-------|--------|
 | OSX   | [![Build Status](https://travis-ci.org/USGS-Astrogeology/conda-libcsm.svg?branch=master)](https://travis-ci.org/USGS-Astrogeology/conda-libcsm) |
-|Linux  | TODO |
+|Linux  | [![Build Status](https://travis-ci.org/USGS-Astrogeology/conda-libcsm.svg?branch=master)](https://travis-ci.org/USGS-Astrogeology/conda-libcsm) |
 |Windows| TODO |
