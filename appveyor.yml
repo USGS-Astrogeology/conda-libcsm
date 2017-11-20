@@ -13,18 +13,16 @@ platform:
 configuration:
   - Release
 
-environment:
-  PYTHON: "C:\\Python34_32"
-  PYTHON_VERSION: "3.6"
-  PYTHON_ARCH : "32"
-  CONDA_PY: "36"
-  CONDA_NPY: "113"
-
 build: off
 
 install:
-  - powershell .\\conda-libcsm\\appveyor\\install.ps1
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - ps: C:/Miniconda/bin/conda config --set always_yes yes --set changeps1 no
+  - ps: C:/Miniconda/bin/conda update -q conda
+
+on_success:
+  - ps: C:/Miniconda/bin/conda install conda-build anaconda-client
+  - ps: conda config --set anaconda_upload yes
+  - ps: C:/miniconda/bin/conda build --token $CONDA_UPLOAD_TOKEN .
 
 test_script:
   - conda build recipes
