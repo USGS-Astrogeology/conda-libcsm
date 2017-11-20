@@ -19,10 +19,10 @@ install:
   - cmd: call C:\\Miniconda36\Scripts\activate.bat
   - cmd: conda config --set always_yes yes --set changeps1 no
   - cmd: conda update -q conda
-
-on_success:
   - cmd: conda install conda-build anaconda-client
   - cmd: conda config --set anaconda_upload yes
+
+on_success:
   - cmd: conda build --token $CONDA_UPLOAD_TOKEN .
 
 build: off
