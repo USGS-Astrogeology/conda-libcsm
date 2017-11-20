@@ -14,11 +14,11 @@ configuration:
   - Release
 
 environment:
-  - PYTHON: "C:\\Python34_32"
-  - PYTHON_VERSION: "3.6"
-  - PYTHON_ARCH : "32"
-  - CONDA_PY: "36"
-  - CONDA_NPY: "113"
+  PYTHON: "C:\\Python34_32"
+  PYTHON_VERSION: "3.6"
+  PYTHON_ARCH : "32"
+  CONDA_PY: "36"
+  CONDA_NPY: "113"
 
 build: off
 
