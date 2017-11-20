@@ -13,16 +13,19 @@ platform:
 configuration:
   - Release
 
-build: off
+
 
 install:
-  - C:\\Miniconda\\bin\\conda config --set always_yes yes --set changeps1 no
-  - C:\\Miniconda\\bin\\conda update -q conda
+  - cmd: call C:\\Miniconda36\Scripts\activate.bat
+  - cmd: conda config --set always_yes yes --set changeps1 no
+  - cmd: conda update -q conda
 
 on_success:
-  - C:\\Miniconda\\bin\\conda install conda-build anaconda-client
-  - C:\\Miniconda\\bin\\conda config --set anaconda_upload yes
-  - C:\\Miniconda\\bin\\conda build --token $CONDA_UPLOAD_TOKEN .
+  - conda install conda-build anaconda-client
+  - conda config --set anaconda_upload yes
+  - conda build --token $CONDA_UPLOAD_TOKEN .
+
+build: off
 
 test_script:
-  - C:\\Miniconda\\bin\\conda build recipes
+  - conda build recipes
