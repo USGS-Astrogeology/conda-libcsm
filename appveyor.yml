@@ -16,13 +16,13 @@ configuration:
 build: off
 
 install:
-  - ps: C:/Miniconda/bin/conda config --set always_yes yes --set changeps1 no
-  - ps: C:/Miniconda/bin/conda update -q conda
+  - C:\\Miniconda\\bin\\conda config --set always_yes yes --set changeps1 no
+  - C:\\Miniconda\\bin\\conda update -q conda
 
 on_success:
-  - ps: C:/Miniconda/bin/conda install conda-build anaconda-client
-  - ps: conda config --set anaconda_upload yes
-  - ps: C:/miniconda/bin/conda build --token $CONDA_UPLOAD_TOKEN .
+  - C:\\Miniconda\\bin\\conda install conda-build anaconda-client
+  - C:\\Miniconda\\bin\\conda config --set anaconda_upload yes
+  - C:\\Miniconda\\bin\\conda build --token $CONDA_UPLOAD_TOKEN .
 
 test_script:
-  - conda build recipes
+  - C:\\Miniconda\\bin\\conda build recipes
