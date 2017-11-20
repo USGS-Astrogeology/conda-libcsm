@@ -21,9 +21,9 @@ install:
   - cmd: conda update -q conda
 
 on_success:
-  - conda install conda-build anaconda-client
-  - conda config --set anaconda_upload yes
-  - conda build --token $CONDA_UPLOAD_TOKEN .
+  - cmd: conda install conda-build anaconda-client
+  - cmd: conda config --set anaconda_upload yes
+  - cmd: conda build --token $CONDA_UPLOAD_TOKEN .
 
 build: off
 
