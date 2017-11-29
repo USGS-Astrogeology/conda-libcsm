@@ -20,7 +20,8 @@ install:
   - cmd: conda install conda-build anaconda-client
   - cmd: conda config --set anaconda_upload yes
 
+build: false
+
 on_success:
   - cmd: conda build --token $CONDA_UPLOAD_TOKEN .
 
-build: off
