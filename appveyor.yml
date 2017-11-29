@@ -23,5 +23,4 @@ install:
 build: false
 
 on_success:
-  - cmd: conda build --token $CONDA_UPLOAD_TOKEN .
-
+  - cmd: conda build --token $CONDA_UPLOAD_TOKEN . --force
