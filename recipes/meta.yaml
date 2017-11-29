@@ -10,27 +10,25 @@ source:
   git_url: https://github.com/USGS-Astrogeology/csm
 
 build:
-  number: 0
+  number: 1
   script_env: 
     - VERSION
     - CONDA_BLD_PATH
 
-requirements:
-  build:
-    - vc 10  # [win]
+#requirements:
+#  build:
+#    - vc 10  # [win]
 
-build:
-  number: 0
 
 test:
   commands:
     - test -e $PREFIX/lib/libcsmapi.so  # [linux]
     - test -e $PREFIX/lib/libcsmapi.dylib  # [osx]
-    - test -e $PREFIX/include/csm/Isd.h
-    - test -e $PREFIX/include/csm/csm.h
+    - test -e $PREFIX/include/csm/Isd.h  # [not win]
+    - test -e $PREFIX/include/csm/csm.h  # [not win]
 
 about:
-  home: https://github.com/sminster/csm
+  home: https://github.com/USGS-Astrogeology/csm
   license: None
   summary: "This is the Community Sensor Model base interface library."
 
