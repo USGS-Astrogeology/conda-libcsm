@@ -21,6 +21,6 @@ install:
   - cmd: conda config --set anaconda_upload yes
 
 on_success:
-  - cmd: conda build --token $CONDA_UPLOAD_TOKEN recipes
+  - cmd: conda build --token $CONDA_UPLOAD_TOKEN .
 
 build: off
