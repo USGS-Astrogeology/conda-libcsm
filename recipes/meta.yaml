@@ -22,6 +22,9 @@ test:
     - test -e $PREFIX/lib/libcsmapi.dylib  # [osx]
     - test -e $PREFIX/include/csm/Isd.h  # [not win]
     - test -e $PREFIX/include/csm/csm.h  # [not win]
+    - if not exist %LIBRARY_BIN%\csmapi.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\csmapi.lib exit 1  # [win]
+    - if not exist %LIBRARY_INC%\csm\Ellipsoid.h exit 1 # [win]
 
 about:
   home: https://github.com/USGS-Astrogeology/csm
