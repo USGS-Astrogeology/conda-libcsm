@@ -1,6 +1,5 @@
 {% set name = "libcsm" %}
-{% set version = "3.0.1" %}
-{% set sha256 = "eab1814242549a1fceb1815e3c1cacda531efeeb7a0cfe79382eb45cc0ce1e8c" %}
+{% set version = "3.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -11,9 +10,6 @@ source:
 
 build:
   number: 1
-  script_env: 
-    - VERSION
-    - CONDA_BLD_PATH
 
 #requirements:
 #  build:
