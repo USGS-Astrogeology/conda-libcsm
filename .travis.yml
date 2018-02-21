@@ -18,8 +18,7 @@ matrix:
       sudo: false
       compiler:
         - clang
-
-
+  
 install:
   # Pull the correct conda for the build system
   - if [ "${TRAVIS_OS_NAME}" == "linux" ]; then
