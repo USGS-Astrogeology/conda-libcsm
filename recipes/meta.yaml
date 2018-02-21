@@ -9,12 +9,16 @@ source:
   git_url: https://github.com/USGS-Astrogeology/csm
 
 build:
-  number: 1
+  number: 2
+  features:
+    - vc14  # [win and (py35 or py36)]
 
-#requirements:
-#  build:
-#    - vc 10  # [win]
-
+requirements:
+  build:
+    - python  # [win]
+    - vc 14  # [win and (py35 or py36)]
+  run:
+    - vc  # [win and (py35 or py36)]
 
 test:
   commands:
