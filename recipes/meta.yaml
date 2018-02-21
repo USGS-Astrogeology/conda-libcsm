@@ -12,6 +12,9 @@ build:
   number: 2
   features:
     - vc14  # [win and (py35 or py36)]
+  script_env:
+    - CC  # [linux]
+    - CXX  # [linux]
 
 requirements:
   build:
