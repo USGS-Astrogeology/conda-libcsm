@@ -19,6 +19,7 @@ requirements:
   build:
     - python  # [win]
     - vc 14  # [win and (py35 or py36)]
+    - cmake
     - {{ compiler('cxx') }}
   run:
     - vc  # [win and (py35 or py36)]
