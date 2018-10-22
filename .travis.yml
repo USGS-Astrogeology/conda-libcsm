@@ -9,13 +9,14 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - ['g++-6']
+            - g++-7
+      env:
+        - MATRIX_EVAL="CXX=g++-7 && CC=gcc-7"
     - os: osx
-      osx_image: xcode9.1
-      sudo: false
-      compiler:
-        - clang
-  
+      osx_image: xcode9.4
+      env: 
+- MATRIX_EVAL="CXX=clang++ && CC=clang"
+
 install:
   # Pull the correct conda for the build system
   - if [ "${TRAVIS_OS_NAME}" == "linux" ]; then
