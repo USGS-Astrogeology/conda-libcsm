@@ -14,7 +14,7 @@ matrix:
         - MATRIX_EVAL="CXX=g++-7 && CC=gcc-7"
     - os: osx
       osx_image: xcode9.4
-      env: 
+      env:
         - MATRIX_EVAL="CXX=clang++ && CC=clang"
 
 install:
@@ -33,4 +33,4 @@ install:
 after_success:
   - conda install conda-build anaconda-client
   - conda config --set anaconda_upload yes
-  - conda build --token $CONDA_UPLOAD_TOKEN .
+  - conda build --token $CONDA_UPLOAD_TOKEN recipes
