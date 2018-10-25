@@ -33,6 +33,4 @@ install:
 after_success:
   - conda install conda-build anaconda-client
   - conda config --set anaconda_upload yes
-  - pwd
-  - ls -la
   - conda build --token $CONDA_UPLOAD_TOKEN recipes -q
