@@ -35,4 +35,4 @@ after_success:
   - conda config --set anaconda_upload yes
   - pwd
   - ls -la
-  - conda build --token $CONDA_UPLOAD_TOKEN recipes
+  - conda build --token $CONDA_UPLOAD_TOKEN recipes -q
