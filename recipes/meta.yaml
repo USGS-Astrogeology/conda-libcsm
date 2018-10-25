@@ -20,10 +20,10 @@ requirements:
     - python  # [win]
     - vc 14  # [win and (py35 or py36)]
     - cmake
-    - {{ compiler('cxx') }}
+    - {{ compiler('cxx') }} # [linux]
   run:
     - vc  # [win and (py35 or py36)]
-    
+
 test:
   commands:
     - test -e $PREFIX/lib/libcsmapi.so  # [linux]
