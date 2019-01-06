@@ -1,28 +1,24 @@
-{% set name = "libcsm" %}
-{% set version = "3.0.3" %}
+{% set name = "csm" %}
+{% set version = "v3.0.3.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  git_url: https://github.com/USGS-Astrogeology/csm
+  url: https://github.com/sminster/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: dbb207704c54d9d0358c77e1773f6a11272110d4c609bde75f88eb78767da1a1
+  patches:
+     - patches/add_cmake.patch  # Adds the CMake build system
 
 build:
-  number: 2
-  features:
-    - vc14  # [win and (py35 or py36)]
-
-detect_binary_files_with_prefix: true
+  number: 0
 
 requirements:
   build:
-    - python  # [win]
-    - vc 14  # [win and (py35 or py36)]
+    - {{ compiler('cxx') }}  # [linux]
+  host:
     - cmake
-    - {{ compiler('cxx') }} # [linux]
-  run:
-    - vc  # [win and (py35 or py36)]
 
 test:
   commands:
@@ -32,12 +28,15 @@ test:
     - test -e $PREFIX/include/csm/csm.h  # [not win]
     - if not exist %LIBRARY_BIN%\csmapi.dll exit 1  # [win]
     - if not exist %LIBRARY_LIB%\csmapi.lib exit 1  # [win]
-    - if not exist %LIBRARY_INC%\csm\Ellipsoid.h exit 1 # [win]
+    - if not exist %LIBRARY_INC%\csm\Ellipsoid.h exit 1  # [win]
 
 about:
-  home: https://github.com/USGS-Astrogeology/csm
-  license: None
-  summary: "This is the Community Sensor Model base interface library."
+  home: http://github.com/sminster/csm
+  license: Public Domain
+  license_file: LICENSE
+  summary: 'The Community Sensor Model API'
+  description: |
+    csm is a C++ API for terrestrial and planetary sensor models
 
 extra:
   recipe-maintainers:
