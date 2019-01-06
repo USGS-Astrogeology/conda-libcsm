@@ -1,6 +1,6 @@
---- /dev/null	2019-01-06 12:40:31.000000000 -0700
-+++ CMakeLists.txt	2019-01-06 12:40:36.000000000 -0700
-@@ -0,0 +1,50 @@
+--- /dev/null	2019-01-06 12:45:33.000000000 -0700
++++ CMakeLists.txt	2019-01-06 12:45:38.000000000 -0700
+@@ -0,0 +1,45 @@
 +cmake_minimum_required(VERSION 3.10)
 +project(csmapi VERSION 3.0.3 DESCRIPTION "Community Sensor Model API")
 +set(CMAKE_CXX_STANDARD 11)
@@ -41,11 +41,6 @@
 +          RUNTIME
 +            DESTINATION ${CMAKE_INSTALL_PREFIX}/Library/lib
 +          )
-+
-+  install(DIRECTORY ${PROJECT_SOURCE_DIR}/ 
-+          DESTINATION ${CMAKE_INSTALL_PREFIX}/Library/include/csm}
-+          FILES_MATCHING PATTERN "*.h"
-+          ) 
 +else()
 +        message(STATUS "CMAKE INSTALL LIBDIR: ${CMAKE_INSTALL_PREFIX}")
 +        install(TARGETS csmapi LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
